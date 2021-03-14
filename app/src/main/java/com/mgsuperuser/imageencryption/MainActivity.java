@@ -2,6 +2,7 @@ package com.mgsuperuser.imageencryption;
 
 import android.Manifest;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
@@ -57,6 +58,8 @@ public class MainActivity extends AppCompatActivity {
         imageView = findViewById(R.id.image_view);
         FileOutputStream fileOutputStream;
 
+
+
         Dexter.withActivity(this)
                 .withPermissions(Manifest.permission.READ_EXTERNAL_STORAGE,
                         Manifest.permission.WRITE_EXTERNAL_STORAGE)
@@ -83,13 +86,14 @@ public class MainActivity extends AppCompatActivity {
         }
 
         btn_enc.setOnClickListener(v -> {
+            String dir = "storage/emulated/0/saved_images/android.jpg";
+            Bitmap picBitmap = BitmapFactory.decodeFile(dir);
             // Convert drawable to Bitmap
-            String dir = "storage/emulated/0/saved_images/android.png";
-            Drawable drawable = ContextCompat.getDrawable(this, R.drawable.african);
-            BitmapDrawable bitmapDrawable = (BitmapDrawable) drawable;
-            Bitmap bitmap = bitmapDrawable.getBitmap();
+//            Drawable drawable = ContextCompat.getDrawable(this, R.drawable.african);
+//            BitmapDrawable bitmapDrawable = (BitmapDrawable) drawable;
+//            Bitmap bitmap = bitmapDrawable.getBitmap();
             ByteArrayOutputStream stream = new ByteArrayOutputStream();
-            bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+            picBitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
             InputStream inputStream = new ByteArrayInputStream(stream.toByteArray());
 
             // Create file
