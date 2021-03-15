@@ -146,26 +146,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-//    private void SaveImage(Bitmap finalBitmap,String filename) throws IOException {
-//
-//        String root = Environment.getExternalStorageDirectory().toString();
-//        File myDir = new File(root + "/saved_images");
-//        myDir.mkdirs();
-//
-//        String fname = filename;
-//        File file = new File (myDir, fname);
-//        if (file.exists ()) file.delete ();
-//        file.createNewFile();
-//        try {
-//            FileOutputStream out = new FileOutputStream(file);
-//            finalBitmap.compress(Bitmap.CompressFormat.JPEG, 90, out);
-//            out.flush();
-//            out.close();
-//
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//    }
 
     public void showMessage(String s) {
         Toast.makeText(getApplicationContext(), s, Toast.LENGTH_LONG).show();
