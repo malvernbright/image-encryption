@@ -1,3 +1,3 @@
 # image-encryption
 
-Compresses images for safe transfer over the internet.
+Compresses images and audio for safe transfer over the internet.
